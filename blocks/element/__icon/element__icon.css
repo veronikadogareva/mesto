@@ -1,0 +1,14 @@
+.element__icon {
+    background: none;
+    border: none;
+    width: 23px;
+    height: 19px;
+    background-image: url(../../../images/hurt.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    align-self: center;
+    cursor: pointer;
+}
+.element__icon:hover {
+    opacity: 0.5;
+}
