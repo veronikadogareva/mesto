@@ -7,4 +7,4 @@ Mesto Russia
 *CSS
 *JavaScript
 ## Ссылка на  GitHub Pages
-https://veronikadogareva.github.io/russian-travel/
+https://veronikadogareva.github.io/mesto/
