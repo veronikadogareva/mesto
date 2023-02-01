@@ -11,67 +11,67 @@
 <body class="body">
     <div class="page">
         <header class="header">
-            <img class="header__logo" src="./images/logo.png" alt="логотип сайта надпись Место(Россия)" >
+            <img class="header__logo" src="./images/logo.svg" alt="логотип сайта надпись Место(Россия)">
         </header>
         <main class="content">
             <section class="profile">
                 <img class="profile__avatar" src="./images/image.jpg" alt="фотография Жака-Ив Кусто в красной шапке">
-                <div class="profile-info">
-                    <div class="profile-info__nowrap">
-                        <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-                        <button class="profile-info__edit-button"></button>
+                <div class="profile__info">
+                    <div class="profile__nowrap">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button"></button>
                     </div>
-                    <h2 class="profile-info__description">Исследователь океана</h2>
+                    <h2 class="profile__description">Исследователь океана</h2>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button"></button>
             </section>
             <ul class="elements">
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg"
                         alt="Кирпичное здание в Карачаевске с красивым видом">
                     <div class="element__group">
-                        <p class="element__place">Карачаевск</p>
-                        <button class="element__icon"></button>
+                        <h2 class="element__place">Карачаевск</h2>
+                        <button class="element__icon" type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png"
                         alt="гора Эльбрус на закате">
                     <div class="element__group">
-                        <p class="element__place">Гора Эльбрус</p>
-                        <button class="element__icon"></button>
+                        <h2 class="element__place">Гора Эльбрус</h2>
+                        <button class="element__icon" type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png"
                         alt="снежные горы и леса">
                     <div class="element__group">
-                        <p class="element__place">Домбай</p>
-                        <button class="element__icon"></button>
+                        <h2 class="element__place">Домбай</h2>
+                        <button class="element__icon" type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.png"
                         alt="гора Эльбрус на закате">
                     <div class="element__group">
-                        <p class="element__place">Гора Эльбрус</p>
-                        <button class="element__icon"></button>
+                        <h2 class="element__place">Гора Эльбрус</h2>
+                        <button class="element__icon" type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.png"
                         alt="снежные горы и леса">
                     <div class="element__group">
-                        <p class="element__place">Домбай</p>
-                        <button class="element__icon"></button>
+                        <h2 class="element__place">Домбай</h2>
+                        <button class="element__icon" type="button"></button>
                     </div>
                 </li>
                 <li class="element">
                     <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg"
                         alt="Кирпичное здание в Карачаевске с красивым видом">
                     <div class="element__group">
-                        <p class="element__place">Карачаево-Черкесия</p>
-                        <button class="element__icon"></button>
+                        <h2 class="element__place">Карачаево-Черкесия</h2>
+                        <button class="element__icon" type="button"></button>
                     </div>
                 </li>
             </ul>
@@ -79,13 +79,15 @@
         <footer class="footer">
             <p class="footer__copyright">© 2023 Mesto Russia</p>
         </footer>
-        <section class="popup-edit">
-            <div class="popup-edit__container">
-                <button class="popup-edit__close"></button>
-                <h2 class="popup-edit__title">Редактировать профиль</h2>
-                <input class="popup-edit__info" type="text" name="name" value="Жак-Ив Кусто">
-                <input class="popup-edit__info" type="text" name="description" value="Исследователь океана">
-                <button class="popup-edit__save">Сохранить</button>
+        <section class="popup">
+            <div class="popup__container">
+                <button class="popup__close" type="button"></button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form" name="form-profile" method="post" action="mailto:veronika.dogareva@yandex.ru">
+                    <textarea class="popup__input popup__input_info_name">Жак-Ив Кусто</textarea>
+                    <textarea class="popup__input popup__input_info_description">Исследователь океана</textarea>
+                    <button class="popup__save" type="submit">Сохранить</button>
+                </form>
             </div>
         </section>
     </div>

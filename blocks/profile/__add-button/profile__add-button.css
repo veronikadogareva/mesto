@@ -3,13 +3,14 @@
     min-height: 50px;
     background: none;
     padding: 0;
-    background-image: url(../../../images/Vector-plus.png);
+    background-image: url(../../../images/Vector\ add.svg);
     background-repeat: no-repeat;
     background-position: center;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
     cursor: pointer;
     margin-left: auto;
+    transition: opacity 0.1s ease;
 }
 
 .profile__add-button:hover {
@@ -26,5 +27,6 @@
     .profile__add-button {
         width: 282px;
         margin: 0 auto;
+        background-image: url(../../../images/Vector\ add\ mobile.svg);
     }
 }

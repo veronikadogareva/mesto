@@ -1,21 +1,24 @@
-let editButton=document.querySelector('.profile-info__edit-button');
-let popupEdit=document.querySelector('.popup-edit');
-let closeButton=popupEdit.querySelector('.popup-edit__close');
-let profileName=document.querySelector('.profile-info__name');
-let profileDescription=document.querySelector('.profile-info__description');
-let inputName=document.querySelector('[name="name"]');
-let inputDescription=document.querySelector('[name="description"]');
-let saveButton=popupEdit.querySelector('.popup-edit__save');
-function toggleOpenPopup (){
-    popupEdit.classList.toggle('popup-edit_active');
+let editButton = document.querySelector('.profile__edit-button');
+let popup = document.querySelector('.popup');
+let closeButton = popup.querySelector('.popup__close');
+let profileName = document.querySelector('.profile__name');
+let profileDescription = document.querySelector('.profile__description');
+let inputName = document.querySelector('.popup__input_info_name');
+let inputDescription = document.querySelector('.popup__input_info_description');
+let saveButton = popup.querySelector('.popup__form');
+function toggleOpenPopup() {
+    popup.classList.toggle('popup_active');
+    if (popup.classList.contains('popup_active') === true) {
+        inputName.value = profileName.textContent;
+        inputDescription.value = profileDescription.textContent;
+    }
 }
-function handleSaveButtonClick(evt){
+function handleSaveButtonClick(evt) {
     evt.preventDefault();
-    profileName.textContent=`${inputName.value}`; 
-    profileDescription.textContent=`${inputDescription.value}`; 
-    toggleOpenPopup ();
+    profileName.textContent = inputName.value;
+    profileDescription.textContent = inputDescription.value;
+    toggleOpenPopup();
 }
-editButton.addEventListener('click',toggleOpenPopup);
-closeButton.addEventListener('click',toggleOpenPopup);
-saveButton.addEventListener('click',handleSaveButtonClick);
-console.log();
+editButton.addEventListener('click', toggleOpenPopup);
+closeButton.addEventListener('click', toggleOpenPopup);
+saveButton.addEventListener('submit', handleSaveButtonClick);
