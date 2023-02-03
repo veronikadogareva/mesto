@@ -7,8 +7,8 @@ let inputName = document.querySelector('.popup__input_info_name');
 let inputDescription = document.querySelector('.popup__input_info_description');
 let saveButton = popup.querySelector('.popup__form');
 function toggleOpenPopup() {
-    popup.classList.toggle('popup_active');
-    if (popup.classList.contains('popup_active') === true) {
+    popup.classList.toggle('popup_opened');
+    if (popup.classList.contains('popup_opened')) {
         inputName.value = profileName.textContent;
         inputDescription.value = profileDescription.textContent;
     }
