@@ -32,7 +32,7 @@ const closePopup = (popup) => {
 }
 const closePopupKeydown = (evt) => {
     if (evt.key === 'Escape') {
-        closePopup(evt.target);
+        closePopup(document.querySelector('.popup_opened'));
     }
 }
 const handleClosePopupByOverlay = (evt) => {
@@ -106,7 +106,6 @@ const handleCreateFormSubmit = (evt) => {
     });
     closePopupCreate();
 }
-
 popupAll.forEach((popup) => {
     popup.addEventListener('click', handleClosePopupByOverlay);
 });
