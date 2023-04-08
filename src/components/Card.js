@@ -28,11 +28,11 @@ export default class Card {
     //     document.querySelector('.elements').prepend(cardElement);
     // }
     _setEventListeners() {
-        const likeButton = this._element.querySelector('.element__icon');
+        this._likeButton = this._element.querySelector('.element__icon');
         const trashButton = this._element.querySelector('.element__trash');
         const image = this._element.querySelector('.element__image');
-        likeButton.addEventListener('click', () => {
-            this._toggleLikeButton(likeButton);
+        this._likeButton.addEventListener('click', () => {
+            this._toggleLikeButton();
         })
         trashButton.addEventListener('click', () => {
             this._removeCard();
@@ -41,8 +41,8 @@ export default class Card {
             this._handleCardClick(this._name, this._link);
         });
     }
-    _toggleLikeButton(element) {
-        element.classList.toggle('element__icon_active');
+    _toggleLikeButton() {
+        this._likeButton.classList.toggle('element__icon_active');
     }
     _removeCard() {
         this._element.remove();
