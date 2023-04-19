@@ -17,8 +17,11 @@
         </header>
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/image.jpg')%>"
-                    alt="фотография Жака-Ив Кусто в красной шапке">
+                <div class="profile__container">
+                    <img class="profile__avatar" src="<%=require('./images/image.jpg')%>"
+                        alt="фотография Жака-Ив Кусто в красной шапке">
+                    <div class="profile__overlay"></div>
+                </div>
                 <div class="profile__info">
                     <div class="profile__nowrap">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -71,13 +74,35 @@
                 <figcaption class="popup__figurcaption">Лалала</figcaption>
             </figure>
         </section>
+        <section class="popup popup_type_delete">
+            <div class="popup__container">
+                <button class="popup__close" type="button"></button>
+                <h2 class="popup__title">Вы уверены?</h2>
+                <button class="popup__button popup__button_type_yes" type="button">Да</button>
+            </div>
+        </section>
+        <section class="popup popup_type_avatar">
+            <div class="popup__container">
+                <button class="popup__close" type="button"></button>
+                <h2 class="popup__title">Обновить аватар</h2>
+                <form class="popup__form" name="form-profile" novalidate>
+                    <input class="popup__input popup__input_info_avatar" id="avatar-input" type="url" name="avatar"
+                        placeholder="Ссылка на фотографию" required>
+                    <span class="popup__input-error avatar-input-error"></span>
+                    <button class="popup__button" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </section>
     </div>
     <template id="element">
         <li class="element">
             <img class="element__image">
             <div class="element__group">
                 <h2 class="element__place"></h2>
-                <button class="element__icon" type="button"></button>
+                <div class="element__like">
+                    <button class="element__icon" type="button"></button>
+                    <p class="element__counter">0</p>
+                </div>
             </div>
             <button class="element__trash" type="button"></button>
         </li>
