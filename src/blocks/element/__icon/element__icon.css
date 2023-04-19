@@ -8,8 +8,9 @@
     background-position: center;
     align-self: center;
     cursor: pointer;
-    margin:5px 5px 0 0;
+    margin:0;
     transition: opacity 0.1s ease;
+    padding: 0;
 }
 .element__icon:hover {
     opacity: 0.5;
