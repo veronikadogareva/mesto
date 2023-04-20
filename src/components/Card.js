@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(data, templateSelector, handleCardClick, handleOpenPopupDelete, api, dataApi) {
+    constructor(idUser, data, templateSelector, handleCardClick, handleOpenPopupDelete, handleLikeCard, handleDislikeCard) {
         this._data = data;
         this._link = data.link;
         this._name = data.name;
@@ -8,9 +8,10 @@ export default class Card {
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
         this._handleOpenPopupDelete = handleOpenPopupDelete;
-        this._api = api;
+        this._handleLikeCard =handleLikeCard;
+        this._handleDislikeCard = handleDislikeCard;
         this._ownerId = data.owner._id;
-        this._myId = dataApi._myId;
+        this._myId = idUser;
 
     }
     _getTemplate() {
@@ -48,22 +49,10 @@ export default class Card {
         this._likeButton.addEventListener('click', () => {
             this._toggleLikeButton();
             if (this._likeButton.classList.contains('element__icon_active')) {
-                this._api.likeCard(this._cardId)
-                    .then((result) => {
-                        timer.textContent = result.likes.length;
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
+                this._handleLikeCard(this._cardId, timer);
 
             } else {
-                this._api.deleteLikeCard(this._cardId)
-                    .then((result) => {
-                        timer.textContent = result.likes.length;
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
+                this._handleDislikeCard(this._cardId, timer);
             }
         });
         trashButton.addEventListener('click', () => {

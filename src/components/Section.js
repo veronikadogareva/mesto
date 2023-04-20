@@ -3,10 +3,13 @@ export default class Section {
         this._renderer = renderer;
         this._container = document.querySelector(containerSelector);
     }
-    createCards(data) {
+    createCards(idUser, data) {
         data.forEach((item) => {
-            this._renderer(item);
+            this._renderer(idUser,item);
         });
+    }
+    addInitialsCards(element){
+        this._container.append(element);
     }
     addItem(element) {
         this._container.prepend(element);

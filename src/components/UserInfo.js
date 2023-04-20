@@ -7,7 +7,9 @@ export default class UserInfo {
         return { name: this._name.textContent, description: this._job.textContent };
     }
     setUserInfo({ name, description }) {
+        if ((name)&&(description)){
         this._name.textContent = name;
         this._job.textContent = description;
+        }
     }
 }
