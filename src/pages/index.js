@@ -59,15 +59,15 @@ const handleDislikeCard = (cardId, timer) => {
         });
 }
 
-const handleButtonClick = (cardElement, id) =>{
+const handleButtonClick = (cardElement, id) => {
     api.deleteCard(id)
-    .then(() => {
-        cardElement.removeCard();
-        popupDelete.close();
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+        .then(() => {
+            cardElement.removeCard();
+            popupDelete.close();
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 
 const handleOpenPopupDelete = (cardElement, id) => {
@@ -116,7 +116,7 @@ const popupEdit = new PopupWithForm({
             .catch((err) => {
                 console.log(err);
             })
-            .finally(() =>renderLoading(false, popupEditForm.querySelector('.popup__button')));
+            .finally(() => renderLoading(false, popupEditForm.querySelector('.popup__button')));
     }
 });
 popupEdit.setEventListeners();
@@ -127,15 +127,15 @@ const popupCreate = new PopupWithForm({
     popupSelector: '.popup_type_card', handleFormSubmit: (item) => {
         renderLoading(true, popupCreateForm.querySelector('.popup__button'));
         const c = api.postNewCard(item)
-            Promise.all([a,c]).then(([infoUser,infoCard]) => {
-                const newCard = createCard(infoUser._id,infoCard);
-                cardList.addItem(newCard);
-                popupCreate.close();
-            })
+        Promise.all([a, c]).then(([infoUser, infoCard]) => {
+            const newCard = createCard(infoUser._id, infoCard);
+            cardList.addItem(newCard);
+            popupCreate.close();
+        })
             .catch((err) => {
                 console.log(err);
             })
-            .finally(() =>renderLoading(false, popupCreateForm.querySelector('.popup__button')));
+            .finally(() => renderLoading(false, popupCreateForm.querySelector('.popup__button')));
     }
 });
 popupCreate.setEventListeners();
@@ -154,28 +154,28 @@ const popupAvatar = new PopupWithForm({
             .catch((err) => {
                 console.log(err);
             })
-            .finally(() =>renderLoading(false, popupAvatarForm.querySelector('.popup__button')));
-        
+            .finally(() => renderLoading(false, popupAvatarForm.querySelector('.popup__button')));
+
     }
 });
 popupAvatar.setEventListeners();
 
-const popupDelete = new PopupWithDelete('.popup_type_delete',handleButtonClick);
+const popupDelete = new PopupWithDelete('.popup_type_delete', handleButtonClick);
 popupDelete.setEventListeners();
 
- const a = api.getUserInfo();
-    a.then((result) => {
-        avatar.src = result.avatar;
-        userInfo.setUserInfo({ name: result.name, description: result.about });
-    })
+const a = api.getUserInfo();
+a.then((result) => {
+    avatar.src = result.avatar;
+    userInfo.setUserInfo({ name: result.name, description: result.about });
+})
     .catch((err) => {
         console.log(err);
     });
 
 const b = api.getInitialCards();
-Promise.all([a,b])
-    .then(([infoUser,infoCard]) => {
-        cardList.createCards(infoUser._id,infoCard);
+Promise.all([a, b])
+    .then(([infoUser, infoCard]) => {
+        cardList.createCards(infoUser._id, infoCard);
     })
     .catch((err) => {
         console.log(err);

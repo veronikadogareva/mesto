@@ -8,7 +8,7 @@ export default class Card {
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
         this._handleOpenPopupDelete = handleOpenPopupDelete;
-        this._handleLikeCard =handleLikeCard;
+        this._handleLikeCard = handleLikeCard;
         this._handleDislikeCard = handleDislikeCard;
         this._ownerId = data.owner._id;
         this._myId = idUser;
