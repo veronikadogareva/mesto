@@ -93,7 +93,6 @@ buttonCreateCard.addEventListener('click', () => {
     validatorCreateCard.disableSubmitButton();
 });
 avatar.addEventListener('click', () => {
-    popupAvatarForm.avatar.value = '';
     popupAvatar.open();
     validatorAvatar.disableSubmitButton();
 });
@@ -126,8 +125,8 @@ const userInfo = new UserInfo('.profile__name', '.profile__description');
 const popupCreate = new PopupWithForm({
     popupSelector: '.popup_type_card', handleFormSubmit: (item) => {
         renderLoading(true, popupCreateForm.querySelector('.popup__button'));
-        const c = api.postNewCard(item)
-        Promise.all([a, c]).then(([infoUser, infoCard]) => {
+        Promise.all([api.getUserInfo(), api.postNewCard(item)])
+        .then(([infoUser, infoCard]) => {
             const newCard = createCard(infoUser._id, infoCard);
             cardList.addItem(newCard);
             popupCreate.close();
@@ -163,18 +162,10 @@ popupAvatar.setEventListeners();
 const popupDelete = new PopupWithDelete('.popup_type_delete', handleButtonClick);
 popupDelete.setEventListeners();
 
-const a = api.getUserInfo();
-a.then((result) => {
-    avatar.src = result.avatar;
-    userInfo.setUserInfo({ name: result.name, description: result.about });
-})
-    .catch((err) => {
-        console.log(err);
-    });
-
-const b = api.getInitialCards();
-Promise.all([a, b])
+Promise.all([api.getUserInfo(), api.getInitialCards()])
     .then(([infoUser, infoCard]) => {
+        avatar.src = infoUser.avatar;
+        userInfo.setUserInfo({ name: infoUser.name, description: infoUser.about });
         cardList.createCards(infoUser._id, infoCard);
     })
     .catch((err) => {
